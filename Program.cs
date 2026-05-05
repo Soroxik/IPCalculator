@@ -11,7 +11,7 @@ namespace Aplikacja
                 int oktetTrzeci = 1;
                 int oktetCzwarty = 93;
             Console.WriteLine($"Adres IP: {oktetPierwszy}.{oktetDrugi}.{oktetTrzeci}.{oktetCzwarty}");
-            Console.WriteLine("Podaj maske podsieciw bitach");
+            Console.WriteLine("Podaj maske podsieci w bitach");
                 int maskaPierwszy = 8;
                 int maskaDrugi = 8;
                 int maskaTrzeci = 8;
@@ -20,8 +20,8 @@ namespace Aplikacja
                 int bityPodsieci = 32;
                 int bityZajete = maskaPierwszy+maskaDrugi+maskaTrzeci+maskaCzwarty;
                 int bityWolne = bityPodsieci - bityZajete;
-                int liczbaPodsieci = (int)Math.Pow(2, bityWolne)-2;
-            Console.WriteLine($"Liczba podsieci: {liczbaPodsieci}");
+                int liczbaHostow = (int)Math.Pow(2, bityWolne)-2;
+            Console.WriteLine($"Liczba hostów: {liczbaHostow}");
         }
     }
 }
