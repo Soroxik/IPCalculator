@@ -5,23 +5,59 @@ namespace Aplikacja
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Podaj adres IP");
-                int oktetPierwszy = 192;
-                int oktetDrugi = 168;
-                int oktetTrzeci = 1;
-                int oktetCzwarty = 93;
-            Console.WriteLine($"Adres IP: {oktetPierwszy}.{oktetDrugi}.{oktetTrzeci}.{oktetCzwarty}");
-            Console.WriteLine("Podaj maske podsieci w bitach");
-                int maskaPierwszy = 8;
-                int maskaDrugi = 8;
-                int maskaTrzeci = 8;
-                int maskaCzwarty = 0;
-            Console.WriteLine($"Maska podsieci: {maskaPierwszy}.{maskaDrugi}.{maskaTrzeci}.{maskaCzwarty}");
-                int bityPodsieci = 32;
-                int bityZajete = maskaPierwszy+maskaDrugi+maskaTrzeci+maskaCzwarty;
-                int bityWolne = bityPodsieci - bityZajete;
-                int liczbaHostow = (int)Math.Pow(2, bityWolne)-2;
-            Console.WriteLine($"Liczba hostów: {liczbaHostow}");
+            // Tablica do adresu IP
+            int[] Ip = new int[4];
+            for (int i = 0; i < 4; i++)
+            {
+                Console.WriteLine("Podaj oktet IP");
+                int oktet = int.Parse(Console.ReadLine());
+                if (oktet >= 0 && oktet <= 255)
+                {
+                    Ip[i] = oktet;
+                }
+                else
+                {
+                    Console.WriteLine("Nieprawidłowy oktet. Podaj wartość od 0 do 255.");
+                    i--; // Powtórz iterację dla tego oktetu
+                }
+            }
+            Console.WriteLine("Twój adres IP to:");
+            for (int i = 0; i < Ip.Length; i++)
+            {
+                Console.Write(Ip[i]);
+                if (i < Ip.Length - 1)
+                    Console.Write(".");
+            }
+            Console.WriteLine();
+            // Koniec tablicy do adresu IP
+            // Tablica do maski podsieci
+            int[] Maska = new int[4];
+            for (int i = 0; i < 4; i++)
+            {
+                Console.WriteLine("Podaj oktet Maski");
+                int oktetM = int.Parse(Console.ReadLine());
+                if (oktetM >= 0 && oktetM <= 255)
+                {
+                    Maska[i] = oktetM;
+                }
+                else
+                {
+                    Console.WriteLine("Nieprawidłowy oktet. Podaj wartość od 0 do 255.");
+                    i--; // Powtórz iterację dla tego oktetu
+                }
+            }
+            Console.WriteLine("Twoja maska to:");
+            for (int i = 0; i < Maska.Length; i++)
+            {
+                Console.Write(Maska[i]);
+                if (i < Maska.Length - 1)
+                    Console.Write(".");
+            }
+            Console.WriteLine();
+            // Koniec tablicy do maski podsieci
+            // Konwersja oktetow maski na binarny
+
         }
     }
 }
+            
